@@ -71,7 +71,7 @@ void CControlModel::makeCmTrajectory(const PlayerPoseT& start, const PlayerPoseT
     double angle_accel_factor = 6.5;
     if(IS_SIMULATION) {
         accel_factor = 1.0;
-        angle_accel_factor = 1.0;
+        angle_accel_factor = 10;
     }
 
     //cout << "ControlModel"<< endl;
