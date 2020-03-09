@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#define FRAME_PERIOD (1 / 75.0)
+#define FRAME_PERIOD (1 / 20.0)
 #define ZERO_NUM (1e-8)
 #define A_FACTOR (1.5)
 #define PI (3.14159265359)

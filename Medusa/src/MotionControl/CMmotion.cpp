@@ -86,13 +86,13 @@ void compute_motion_1d(double x0, double v0, double v1,
     double decel_dist_to_v1 = fabs((v0 + v1) / 2.0) * decel_time_to_v1;                               // 单一减速到末速度时的位移
 
     // 这个时间很关键，设得较大则定位精度将大大降低 by qxz
-    double period = 1 / 40.0; // 一段很小的时间，处理运动到目标点附近时加速度，稳定到点，防止超调
+    double period = 1 / 16.0; // 一段很小的时间，处理运动到目标点附近时加速度，稳定到点，防止超调
     if(pT == MOVE_X)
-        period = 1 / 40.0;
+        period = 1 / 13.0;
     else if(pT == MOVE_Y)
-        period = 1.0 / 75.0;
+        period = 1.0 / PARAM::Vision::FRAME_RATE;
     else
-        period = 1 / 40.0;
+        period = 1 / 16.0;
 
     if(a_max > 600*10 && pT != MOVE_Y) {
         if(fabs(v0) > 150*10)

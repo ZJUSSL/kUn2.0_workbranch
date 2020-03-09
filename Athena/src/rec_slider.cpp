@@ -1,9 +1,17 @@
+/*
+ * @Author: your name
+ * @Date: 2020-03-08 22:00:44
+ * @LastEditTime: 2020-03-09 15:47:39
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \kUn2.0_workbranch\Athena\src\rec_slider.cpp
+ */
 #include "rec_slider.h"
 #include "field.h"
 
 namespace  {
-int fps = 1000/75;
-
+// int fps = 1000/75;
+int fps = 1000/20;
 
 bool _stopped = true;
 }
