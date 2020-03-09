@@ -51,8 +51,7 @@ namespace PARAM {
         const double MaxDribbleDist = 500; // 最大带球距离, 0代表没有限制
     }
     namespace Vision{
-//        const double FRAME_RATE = 75;
-        const double FRAME_RATE = 20;
+        const double FRAME_RATE = 75;
     }
     namespace Latency{
         // 下面分开的部分是给server作仿真用的
@@ -138,8 +137,7 @@ namespace ZSS {
         const int DEBUG_MSG_RECEIVE[2] = {20001, 20002};
         const int DEBUG_SCORE_RECEIVE[2] = {20003, 20004};
         const int SIM_SEND = 20011;
-//        const double FRAME_RATE = 75;
-        const double FRAME_RATE = 20;
+        const double FRAME_RATE = 75;
         const double V_SWITCH = 2000;
         const double ACC_SLIDE = -4000;
         const double ACC_ROLL = -325;
