@@ -175,7 +175,7 @@ void SimModule::sendSim(int t, ZSS::Protocol::Robots_Command& command) {
         double vx = commands.velocity_x();
         double vy = commands.velocity_y();
         double vr = commands.velocity_r();
-        double dt = 1. / Athena::FRAME_RATE;
+        double dt = 1. / PARAM::Vision::FRAME_RATE;
         double theta = vr * dt;
         CVector v(vx, vy);
         v = v.rotate(theta);

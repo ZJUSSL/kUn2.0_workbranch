@@ -301,7 +301,7 @@ void encodeLegacy(const ZSS::Protocol::Robot_Command& command, QByteArray& tx, i
     double origin_vx = command.velocity_x() / 10.0; //mm -> cm
     double origin_vy = command.velocity_y() / 10.0; //mm -> cm
     double origin_vr = command.velocity_r();
-    double dt = 1. / Athena::FRAME_RATE;
+    double dt = 1. / PARAM::Vision::FRAME_RATE;
     double theta = origin_vr * dt;
     CVector v(origin_vx, origin_vy);
     v = v.rotate(theta);

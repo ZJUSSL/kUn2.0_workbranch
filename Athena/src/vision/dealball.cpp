@@ -165,14 +165,14 @@ void CDealBall::run() {
         mergeBall();
         choseBall();
     } else {
-        CVector lastVel = GlobalData::instance()->maintain[0].ball[0].velocity / ZSS::Athena::FRAME_RATE;
+        CVector lastVel = GlobalData::instance()->maintain[0].ball[0].velocity / PARAM::Vision::FRAME_RATE;
         CVector ballTravel ;
         if (GlobalData::instance()->maintain[0].ball[0].velocity.mod() >= ZSS::Athena::V_SWITCH)
-            ballTravel = lastVel +  lastVel.unit() * (ZSS::Athena::ACC_SLIDE / ZSS::Athena::FRAME_RATE / ZSS::Athena::FRAME_RATE / 2 ) ;
+            ballTravel = lastVel +  lastVel.unit() * (ZSS::Athena::ACC_SLIDE / PARAM::Vision::FRAME_RATE / PARAM::Vision::FRAME_RATE / 2 ) ;
         else if (GlobalData::instance()->maintain[0].ball[0].velocity.mod() <= 1e-8)
             ballTravel = CVector(0, 0);
         else
-            ballTravel = lastVel +  lastVel.unit() * (ZSS::Athena::ACC_ROLL / ZSS::Athena::FRAME_RATE / ZSS::Athena::FRAME_RATE / 2 );
+            ballTravel = lastVel +  lastVel.unit() * (ZSS::Athena::ACC_ROLL / PARAM::Vision::FRAME_RATE / PARAM::Vision::FRAME_RATE / 2 );
 
         result.addBall(GlobalData::instance()->maintain[0].ball[0].pos + ballTravel);
         lastBall = GlobalData::instance()->maintain[0].ball[0];
@@ -187,17 +187,17 @@ void CDealBall::updateVel(const Matrix2d& tempMatrix, ReceiveVisionMessage& resu
 
     // 1.进行Kalman滤波，估计球的位置以及球速
     CGeoPoint filtPoint (tempMatrix(0, 0), tempMatrix(1, 0));
-    CVector ballVel(tempMatrix(2, 0)* ZSS::Athena::FRAME_RATE, tempMatrix(3, 0)*ZSS::Athena::FRAME_RATE);
+    CVector ballVel(tempMatrix(2, 0)* PARAM::Vision::FRAME_RATE, tempMatrix(3, 0)*PARAM::Vision::FRAME_RATE);
     ballVel = ballVel / lostFrame;
     if (ballVel.mod()>7500) ballVel= ballVel.unit()*7500;
     // 2.延时补偿，根据延时帧率将位置和速度进行修正
     for( int i = 0; i < ZSS::Athena::TOTAL_LATED_FRAME; ++i ) {
-        //thisCycle.SetPos(thisCycle.Pos() + thisCycle.Vel() / ZSS::Athena::FRAME_RATE);
+        //thisCycle.SetPos(thisCycle.Pos() + thisCycle.Vel() / PARAM::Vision::FRAME_RATE);
         CVector uniVec = ballVel / (ballVel.mod() + 1.0);
         if ( ballVel.mod() > ZSS::Athena::BALL_DELC_CHANGE_POINT )
-            ballVel = ( uniVec * ( ballVel.mod() - ZSS::Athena::BALL_FAST_DEC / ZSS::Athena::FRAME_RATE ));
+            ballVel = ( uniVec * ( ballVel.mod() - ZSS::Athena::BALL_FAST_DEC / PARAM::Vision::FRAME_RATE ));
         else if ( ballVel.mod() > 100 )
-            ballVel = ( uniVec * ( ballVel.mod() - ZSS::Athena::BALL_SLOW_DEC / ZSS::Athena::FRAME_RATE ));
+            ballVel = ( uniVec * ( ballVel.mod() - ZSS::Athena::BALL_SLOW_DEC / PARAM::Vision::FRAME_RATE ));
         else {
             ballVel = (CVector(0, 0));
         }
