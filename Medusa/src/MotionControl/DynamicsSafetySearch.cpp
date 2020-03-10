@@ -50,9 +50,9 @@ namespace {
  初始化
 **********************************************************************/
 CDynamicSafetySearch::CDynamicSafetySearch() {
-    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_SPEED,"CGotoPositionV2/MNormalSpeed",300*10);
-    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_ACC,"CGotoPositionV2/MNormalAcc",450*10);
-    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_DEC,"CGotoPositionV2/MNormalDec",450*10);
+    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_SPEED,"CGotoPositionV2/MNormalSpeed",2000);
+    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_ACC,"CGotoPositionV2/MNormalAcc",200*10);
+    ZSS::ZParamManager::instance()->loadParam(MAX_TRANSLATION_DEC,"CGotoPositionV2/MNormalDec",200*10);
     ZSS::ZParamManager::instance()->loadParam(MIN_SPEED_OPEN_DSS,"CGotoPositionV2/DSS_MinSpeedOpen",100*10);
     ZSS::ZParamManager::instance()->loadParam(MIN_TEAMMATE_AVOID_DIST,"DSS/DSS_TeammateMinAvoidDist",1*10);
     ZSS::ZParamManager::instance()->loadParam(MAX_TEAMMATE_AVOID_DIST,"DSS/DSS_TeammateMaxAvoidDist",9*10);

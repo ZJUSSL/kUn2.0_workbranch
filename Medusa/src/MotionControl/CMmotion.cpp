@@ -23,9 +23,9 @@ const double rotateScaleFactor = 1.0;
 const double minAngleLimitRotateSpeed = 15.0 / 180.0 * PARAM::Math::PI;
 
 bool IS_SIMULATION = ZSS::ZParamManager::instance()->value("Alert/IsSimulation", QVariant(false)).toBool();
-double OUR_MAX_SPEED = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalSpeed",QVariant(300*10)).toDouble();
-double OUR_MAX_ACC = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalAcc",QVariant(450*10)).toDouble();
-double OUR_MAX_DEC = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalDec",QVariant(450*10)).toDouble();
+double OUR_MAX_SPEED = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalSpeed",QVariant(2000)).toDouble();
+double OUR_MAX_ACC = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalAcc",QVariant(2000)).toDouble();
+double OUR_MAX_DEC = ZSS::ZParamManager::instance()->value("CGotoPositionV2/MNormalDec",QVariant(2000)).toDouble();
 bool DISPLAY_ROTATION_LIMIT = ZSS::ZParamManager::instance()->value("Debug/RotationLimit",QVariant(false)).toBool();//true;
 bool DEBUG_TIME = ZSS::ZParamManager::instance()->value("Debug/TimePredict", QVariant(false)).toBool();
 bool addComp = true;
